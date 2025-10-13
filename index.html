@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prajna Bhat - Data Scientist</title>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#about" class="nav-item">About</a>
+            <a href="#projects" class="nav-item">Projects</a>
+            <a href="#skills" class="nav-item">Skills</a>
+            <a href="#experience" class="nav-item">Experience</a>
+            <a href="#education" class="nav-item">Education</a>
+            <a href="#achievements" class="nav-item">Achievements</a>
+            <a href="#contact" class="nav-item">Contact</a>
+            <a href="#fun" class="nav-item">Fun!</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <img src="./resources/profile_photo.jpg" height="160" width="160" alt="Prajna Bhat">
+            <h1>Prajna Bhat</h1>
+            <h2>Data Scientist & ML Enthusiast</h2>
+            <p>Welcome! I'm delighted you've stopped by my portfolio. For the past three years, my mission has been bridging the gap between raw, complex data and real-world impact. I don't just build machine learning models; I view them as tools for solving tangible business problems—whether that means optimizing logistics, predicting candidate fitness, or improving user retention. I thrive on diving into the messy, large-scale datasets that organizations rely on, transforming ambiguity into scalable, actionable data products that deliver measurable business value.
+                        </p>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <div class="personal-quote">
+            I approach every challenge with an engineer's curiosity and a scientist's rigor. My colleagues often describe me as highly detail-oriented, tenacious, and collaborative. I believe the best solutions aren't just technically elegant, but also maintainable, easily understood by stakeholders, and designed with the human element in mind.
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <h2 class="fade-in">Projects</h2>
+        <div class="projects-container">
+            
+            <!-- Project 1: View-GCN 3D Human Pose Estimation -->
+            <div class="project-card fade-in">
+                <details>
+                    <summary>
+                        <div class="project-info-header">
+                            <div class="project-title">View-GCN 3D Human Pose Estimation</div>
+                            <div class="project-tech">Python | PyTorch | GCN | Keypoint R-CNN</div>
+                        </div>
+                        <span class="project-arrow">&gt;</span>
+                    </summary>
+                    <div class="project-details">
+                        <p>This project adapts the View-GCN idea to the 3D human-pose estimation problem: it first extracts per-image keypoint features using a ResNet-based keypoint network, then builds a view graph over multiple camera images of the same scene and runs graph convolutions to aggregate information across views and regress accurate 3D joint coordinates. The pipeline includes data preparation, camera calibration utilities, training & inference scripts, and visualization of predicted vs ground-truth joints.</p>
+                        <video width="320" height="240" controls style="display: block; margin: 1rem auto;">
+                        <source src="./resources/Viewgcn_project_video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <p><b>Multi-view reasoning:</b> unlike single-image approaches, the model explicitly models relationships across camera views so occluded or ambiguous joints can be resolved by information from other viewpoints. 
+                        <br>
+                        <b>Practical dataset & benchmark:</b> the implementation uses the MPI-INF-3DHP dataset — a multi-camera dataset with markerless 3D annotations — so the results are comparable to the literature and robust to real-world appearance variation. 
+                        <br>
+                        <b>End-to-end pipeline:</b> includes scripts to extract frames, format annotations, compute camera positions, train both stages, run inference, and create visual outputs (best/worst frame comparisons and full 14-view visualizations).</p>
+                        <p><b>Skills:</b></p>
+                        <ul>
+                            <li>Deep Learning (PyTorch, GCNs, Keypoint R-CNN)</li>
+                            <li>3D Computer Vision & Multi-View Geometry</li>
+                            <li>Data Preprocessing & Model Evaluation</li>
+                            <li>Research Implementation & Problem Solving</li>
+                            <li>Team Collaboration & Communication</li>
+                            <li>Project Management & Documentation</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Project 2: Medical Anomaly Detection -->
+            <div class="project-card fade-in">
+                <details>
+                    <summary>
+                        <div class="project-info-header">
+                            <div class="project-title">Medical Anomaly Detection</div>
+                            <div class="project-tech">PyTorch | Computer Vision</div>
+                        </div>
+                        <span class="project-arrow">&gt;</span>
+                    </summary>
+                    <div class="project-details">
+                        <p>Developed an end-to-end deep learning pipeline to detect and classify 14 types of thoracic abnormalities from chest X-ray images. The solution utilized a multi-label classification approach, leveraging pre-trained models and custom architectures to achieve robust performance on the AMIA Public Challenge 2024 dataset.</p>
+                        <p><b>Clinical Impact:</b> Automates the detection of multiple thoracic abnormalities, aiding radiologists in faster and more accurate diagnoses.
+                        <br>
+                        <b>Efficiency:</b> Reduces the manual effort required in analyzing chest X-rays, streamlining the diagnostic workflow.
+                        <br>
+                        <b>Scalability:</b> The model can be adapted to various medical imaging tasks, demonstrating versatility in healthcare AI applications.</p>
+                        <p><b>Skills:</b></p>
+                        <ul>
+                            <li>Deep Learning (PyTorch)</li>
+                            <li>Computer Vision(image preprocessing, augmentation, and multi-label classification techniques)</li>
+                            <li>Problem Solving</li>
+                            <li>Independent Research</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Project 3: AI Recruitment Helper -->
+            <div class="project-card fade-in">
+                <details>
+                    <summary>
+                        <div class="project-info-header">
+                            <div class="project-title">AI Recruitment Helper</div>
+                            <div class="project-tech">Python | Machine Learning (NLP/CV) | Ethical AI Frameworks | Bias Mitigation | Data Privacy (GDPR/Compliance)</div>
+                        </div>
+                        <span class="project-arrow">&gt;</span>
+                    </summary>
+                    <div class="project-details">
+                        <p>This project develops an AI-powered assistant designed to enhance and streamline the recruitment workflow, such as candidate screening, resume ranking, and personalized communication. Crucially, the system is built with a strong focus on Ethical AI principles, incorporating techniques to detect and mitigate algorithmic bias that often exists in historical hiring data. The helper aims to promote fairness and transparency in hiring decisions, ensuring that evaluations are based solely on job-relevant skills and qualifications, thereby fostering a more diverse and equitable talent pool.</p>
+                        <video width="320" height="240" controls style="display: block; margin: 1rem auto;">
+                        <source src="./resources/FitCheck_demo.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                        </video>
+                        <p>
+                        <b>Ethical AI & Bias Mitigation:</b> Engineered and implemented fairness-aware machine learning models and pre-processing techniques (e.g., anonymization or re-weighting) to actively reduce gender, racial, or age bias in candidate scoring.<br>
+                        <b>Transparency and Explainability (XAI):</b> Developed an <abbr title="Explainable Artificial Intelligence">XAI</abbr> component to provide justification for candidate scores or rankings, transforming a 'black-box' AI decision into a transparent, auditable, and legally defensible recommendation for human recruiters.<br>
+                        <b>Full-Stack ML Pipeline:</b> Built an end-to-end recruitment tool, including data ingestion (resume parsing), model training, API deployment, and integration for real-time candidate evaluation.<br>
+                        <b>Data Compliance and Privacy:</b> Designed the system with an emphasis on data security and compliance (e.g., in line with GDPR principles) regarding the handling of sensitive personal information from applicants.<br>
+                        </p>
+                        <p><b>Skills:</b></p>
+                        <ul>
+                            <li>Applied Machine Learning (NLP, CV for document processing, Model Deployment)</li>
+                            <li>Ethical AI / Algorithmic Fairness (Bias Detection/Mitigation, Fairness Metrics)</li>
+                            <li>Software Development (Python, REST API, Microservices Architecture)</li>
+                            <li>Data Engineering (Data Pre-processing, Pipeline Automation)</li>
+                            <li>Regulatory Compliance (Data Privacy, GDPR principles)</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Project 4: Buyer Rating System -->
+            <div class="project-card fade-in">
+                <details>
+                    <summary>
+                        <div class="project-info-header">
+                            <div class="project-title">Buyer Rating System</div>
+                            <div class="project-tech">Python | Flask/Django | REST API | SQL/PostgreSQL | Algorithmic Risk Scoring</div>
+                        </div>
+                        <span class="project-arrow">&gt;</span>
+                    </summary>
+                    <div class="project-details">
+                        <p>This project is a back-end system designed to be an e-commerce risk mitigation tool that calculates, stores, and serves a risk score for individual buyers. It processes historical transaction data, including payment patterns, return frequency, and chargeback rates, to generate a predictive buyer rating. This rating allows external services (like a seller's order fulfillment system) to make data-driven decisions, such as requiring extra security steps or declining risky transactions, thereby protecting sellers from potential financial losses.</p>
+                        <p>
+                        <b>Risk Mitigation Architecture:</b> Designed and built a system focused on solving a critical business problem—reducing financial risk and fraud—which demonstrates a product-first, value-driven approach.</li><br>
+                        <b>Algorithmic Implementation:</b> Developed a custom, weighted scoring algorithm to aggregate disparate data points into a single, actionable risk metric.</li><br>
+                        <b>API Design and Development:</b> Created a high-performance RESTful API endpoint capable of providing real-time buyer risk scores to consuming services.</li><br>
+                        <b>Data Modeling:</b> Engineered an efficient database schema to manage and query large volumes of historical transaction and buyer behavior data.</li>
+                        </p>
+                        <p><b>Skills:</b></p>
+                        <ul>
+                            <li>Backend Development (Python, Frameworks like Flask/Django)</li>
+                            <li>Database Management (SQL/NoSQL Data Modeling, Query Optimization)</li>
+                            <li>REST API Design (Creating robust, scalable service endpoints)</li>
+                            <li>Algorithmic Problem-Solving (Implementing custom scoring and ranking logic)</li>
+                            <li>System Integration (Designing for consumption by external e-commerce platforms)</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section section-alt" id="skills">
+        <h2 class="fade-in">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <div class="skill-category">🖥️ Programming Languages</div>
+                <ul class="skill-list">
+                    <li><span class="iconify" data-icon="logos:python" data-width="60px" data-height="60px"></span><br>Python</li>
+                    <li><span class="iconify" data-icon="logos:c" data-width="60px" data-height="60px"></span><br>C</li>
+                    <li><span class="iconify" data-icon="logos:c-plusplus" data-width="60px" data-height="60px"></span><br>C++</li>
+                    <li><span class="iconify" data-icon="logos:java" data-width="60px" data-height="60px"></span><br>Java</li>
+                    <li><span class="iconify" data-icon="logos:mysql" data-width="60px" data-height="60px"></span><br>MySQL</li>
+                    <li><span class="iconify" data-icon="logos:postgresql" data-width="60px" data-height="60px"></span><br>PostgreSQL</li>
+                </ul>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-category">🧠 Machine Learning</div>
+                <ul class="skill-list">
+                    <li><span class="iconify" data-icon="logos:pytorch-icon" data-width="60px" data-height="60px"></span><br>PyTorch</li>
+                    <li><span class="iconify" data-icon="logos:tensorflow" data-width="60px" data-height="60px"></span><br>TensorFlow</li>
+                    <li><span class="iconify" data-icon="logos:numpy" data-width="60px" data-height="60px"></span><br>NumPy</li>
+                    <li><span class="iconify" data-icon="logos:pandas" data-width="60px" data-height="60px"></span><br>Pandas</li>
+                    <li><span class="iconify" data-icon="logos:opencv" data-width="60px" data-height="60px"></span><br>OpenCV</li>
+                    <li><span class="iconify" data-icon="logos:matplotlib-icon" data-width="60px" data-height="60px"></span><br>Matplotlib</li>
+                    <li><span class="iconify" data-icon="logos:seaborn" data-width="60px" data-height="60px"></span><br>Seaborn</li>
+                </ul>
+            </div>
+            <div class="skill-card fade-in">
+                <div class="skill-category">🛠️ Tools & Platforms</div>
+                <ul class="skill-list">
+                    <li><span class="iconify" data-icon="logos:aws" data-width="60px" data-height="60px"></span><br>AWS</li>
+                    <li><span class="iconify" data-icon="logos:docker" data-width="60px" data-height="60px"></span><br>Docker</li>
+                    <li><span class="iconify" data-icon="logos:git" data-width="60px" data-height="60px"></span><br>Git</li>
+                    <li><span class="iconify" data-icon="logos:jupyter" data-width="60px" data-height="60px"></span><br>Jupyter</li>
+                    <li><span class="iconify" data-icon="logos:microsoft-power-bi" data-width="60px" data-height="60px"></span><br>Power BI</li>
+                    <li><span class="iconify" data-icon="logos:oracle" data-width="60px" data-height="60px"></span><br>Oracle Integration Cloud</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section" id="experience">
+        <h2 class="fade-in">Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+               <div class="timeline-content">
+    <img src="./resources/tub_logo.png" alt="TU Berlin Logo" class="timeline-logo"> 
+    <div class="timeline-title">Data Science Research Assistant</div>
+    <div class="timeline-company">Technical University of Berlin, Germany</div>
+    <div style="color: #7f8c8d; margin-bottom: 1rem;">Aug 2024 – Present</div>
+    <ul>
+        <li>Optimized <b>BGP network traffic forecasting</b> using deep learning models built with <b>PyTorch</b> and <b>Scikit-learn</b>, achieving a <b>25% enhancement in predictive stability</b> over baseline models. Visualized complex network routing data and analytical results via <b>Microsoft Power BI</b> dashboards for actionable insight delivery.</li>
+        <li>Developed and backtested <b>real-time quantitative trading algorithms</b> focused on the <b>German Power Market</b>. The strategy utilized sophisticated <b>time series forecasting</b> techniques on data streams derived from <b>power futures and futures options</b> to model short-term volatility and risk.</li>
+        <li>Applied advanced computational finance methods, including implementing and adapting the <b>Ski-Rental algorithm</b> to solve dynamic, sequential resource allocation problems under financial uncertainty, optimizing decision-making in time-critical scenarios.</li>
+        <li>Created and maintained <b>dynamic data dashboards</b> that synthesized research outcomes from BGP analysis and power market models, enabling intuitive and efficient dissemination of results to both academic faculty and external industry stakeholders.</li>
+    </ul>
+</div>
+            </div>
+            <div class="timeline-item fade-in">
+              <div class="timeline-content">
+    <img src="./resources/pwc_logo.png" alt="PwC Logo" class="timeline-logo"> 
+    <div class="timeline-title">Technical Consultant</div>
+    <div class="timeline-company">PricewaterhouseCoopers (PwC) - Bangalore, India</div>
+    <div style="color: #7f8c8d; margin-bottom: 1rem;">Aug 2021 – Sept 2023</div>
+    <ul>
+        <li>Drove data pipeline efficiency for major financial clients by developing and deploying <b>Oracle Cloud Integrations</b>. This involved extensive use of high-performance <b>SQL</b> and <b>PL/SQL</b> to manage, transform, and optimize large-scale financial datasets, ensuring data quality for subsequent analytical modeling.</li>
+        <li>Architected and delivered scalable, cloud-based business intelligence solutions using <b>Oracle Analytics Cloud (OAC)</b> for critical finance and risk reporting. This provided stakeholders with dynamic, visual access to complex operational metrics, setting the foundation for data-driven decision-making.</li>
+        <li>Implemented strategic <b>workflow automation</b> scripts (using proprietary tools and custom scripts) across the project lifecycle, successfully <b>reducing project setup and deployment time by an average of 8 hours</b> per client engagement, thus improving team efficiency and delivery speed.</li>
+        <li>Consistently achieved <b>100% client satisfaction</b> across three major global project rollouts in the financial services domain by ensuring precise data reporting accuracy and seamless system integration, validating strong technical and consulting acumen.</li>
+    </ul>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section" id="education">
+        <h2 class="fade-in">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <img src="./resources/fu-logo.JPG" alt="FU Berlin Logo" class="timeline-logo">
+                    <div class="timeline-title">MSc. in Data Science (GPA: 1.8)</div>
+                    <div class="timeline-company">Freie Universität Berlin</div>
+                    <div style="color: #7f8c8d; margin-bottom: 1rem;">Oct 2023 – Nov 2025</div>
+                    <p>Coursework in Machine Learning, Deep Learning, Statistical Methods, and Data Engineering</p>
+                </div>
+            </div>
+        </div>
+         <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <img src="./resources/DSI.png" alt="DSI Logo" class="timeline-logo">
+                    <div class="timeline-title">B.E. in Computer Science (GPA: 1.3)</div>
+                    <div class="timeline-company">Dayananda Sagar College of Engineering</div>
+                    <div style="color: #7f8c8d; margin-bottom: 1rem;">Jun 2017 – Aug 2021</div>
+                    <p>Coursework in Machine Learning, Big Data, Algorithms, Data Structures, System Design, Computer Networks, DBMS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+   <section class="section" id="achievements">
+    <h2 class="fade-in">Achievements</h2>
+    <div style="max-width: 700px; margin: 3rem auto 0;">
+        <div class="skill-card fade-in">
+            <div class="skill-category">🏆 Certifications & Awards</div>
+            <ul style="list-style: none; text-align: left; padding: 0;">
+                <li style="padding: 0.5rem 0; color: #555;">
+                    📊 <a href="./resources/PowerBI_Cert.pdf" target="_blank" style="color: inherit; text-decoration: underline;">
+                        Power BI for Beginners (2025)
+                    </a>
+                </li>
+                <li style="padding: 0.5rem 0; color: #555;">
+                    👩‍🔬 <a href="./resources/PwC_Award.pdf" target="_blank" style="color: inherit; text-decoration: underline;">
+                        Above and Beyond - "Einstein" (2022)
+                    </a> - client satisfaction and inpspiration award for migration automation
+                </li>
+                <li style="padding: 0.5rem 0; color: #555;">
+                    🤖 <a href="./resources/Explore ML Certificate.pdf" target="_blank" style="color: inherit; text-decoration: underline;">
+                        Google AI Explore ML Workshop (2020)
+                    </a>
+                </li>
+                <li style="padding: 0.5rem 0; color: #555;">
+                    💻 <a href="./resources/AmazonCMS_Certificate.pdf" target="_blank" style="color: inherit; text-decoration: underline;">
+                        Amazon Campus Mentorship Series (2020) 
+                    </a> - among the best 8 students of the campus
+                </li>
+                <li style="padding: 0.5rem 0; color: #555;">
+                    📱 <a href="./resources/AAICM_ConferencePaperCertificate.pdf" target="_blank" style="color: inherit; text-decoration: underline;">
+                        Conference Applications of Artificial Intelligence and Computational Mathematics (AAICM - 2020)
+                    </a> - presented recipie recommonder android application
+                </li>
+                <li style="padding: 0.5rem 0; color: #555;">
+                    🩺 <a href="./resources/Symposium_Certificate.pdf" target="_blank" style="color: inherit; text-decoration: underline;">
+                        Symposium on INTEGRATION OF TECHNLOGY FOR AFFORDABLE HEALTHCARE (2019)
+                    </a> - segmentation on ultrasound images to identify carotid artery diseases
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <h2 class="fade-in">Let's Connect!</h2>
+        <div style="text-align: center;">
+            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #555; max-width: 600px; margin-left: auto; margin-right: auto;">
+                Ready to collaborate on exciting data science projects? Let's chat!
+            </p>
+            <div class="contact-links fade-in">
+                <a href="mailto:prajnabhat111@gmail.com" class="contact-link">📧 Email Me</a>
+                <a href="tel:+4917643330758" class="contact-link">📞 +49 176 4333 0758</a>
+                <a href="https://www.linkedin.com/in/prajna-narayan-bhat/" class="contact-link">💼 LinkedIn</a>
+                <a href="https://github.com/prajnabhat111" class="contact-link">💻 GitHub</a>
+            </div>
+        </div>
+    </section>
+
+   <section class="section" id="fun">
+        <h2 class="fade-in">Beyond the Data: Creative Pursuits</h2>
+        <p style="text-align: center; color: #555; max-width: 700px; margin: 0 auto 3rem; font-size: 1.1rem;">
+            When I'm not training models or wrangling datasets, I explore the world through words, voice, and colors.
+        </p>
+        
+        <div class="creative-grid">
+            <!-- Poetry Card -->
+            <div class="creative-card fade-in" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <div class="creative-icon">✍️</div>
+                <h3 class="creative-title">Poetry & Writing</h3>
+                <p class="creative-description">
+                    Crafting verses that blend nature with human emotion. From data patterns to life patterns, words are my other language.
+                </p>
+                <div class="creative-sample">
+                    <em>"This isn't my home, for I do not sleep here, eat here, or spend most of my life here.<br>
+                        Yet, this feels more like a home than the one I sleep in, eat in, and spend most of my life in.<br>
+                        What is a home after all?<br>
+                        Is it the one I live in or the one that lives in me?"</em>
+                </div>
+            </div>
+
+            <!-- Spoken Word Card -->
+            <div class="creative-card fade-in" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <div class="creative-icon">🎤</div>
+                <h3 class="creative-title">Spoken Word</h3>
+                <p class="creative-description">
+                    Regular performer at poetry open mics, bringing stories to life through voice and emotion. Storytelling meets performance art.
+                </p>
+                <div class="creative-highlights">
+                    <span class="badge">Open Mic Regular</span>
+                    <span class="badge">Storyteller</span>
+                    <span class="badge">Public Speaker</span>
+                </div>
+                <a href="https://www.instagram.com/spaghetti_writes?igsh=NDY2ZGlwN20za3hx" target="_blank" class="creative-link-button">
+                    <span class="iconify" data-icon="mdi:instagram" data-width="20" data-height="20"></span>
+                    Follow My Writing
+                </a>
+            </div>
+            <div class="creative-card fade-in" 
+                style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"
+                onclick="openModal()">
+                <div class="creative-icon">🎨</div>
+                <h3 class="creative-title">Art</h3>
+                <p class="creative-description">
+                    Every stroke in every color brings the canvas to life.
+                </p>
+                
+                <div class="creative-gallery" id="artGalleryPreview">
+                    <div class="gallery-placeholder">
+                        <img src="./resources/money_speaks.jpg" alt="Sketch preview">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="artGalleryModal" class="modal-backdrop">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <h2 style="color: white; margin-bottom: 20px;">My Creative Gallery</h2>
+            <p style="color: #ccc;">Click 'x' to close and return to the portfolio.</p>
+            
+            <div class="modal-gallery-grid">
+                <img src="./resources/money_speaks.jpg" alt="Full Painting 1" class="modal-image fade-in">
+                <img src="./resources/hair_girl.jpg" alt="Full Drawing 2" class="modal-image fade-in">
+                <img src="./resources/crying_eye.jpg" alt="Full Painting 1" class="modal-image fade-in">
+                <img src="./resources/butterfly_earring.jpg" alt="Full Sketch 3" class="modal-image fade-in">
+                <!-- <img src="./resources/mandala.jpg" alt="Another Digital Art" class="modal-image fade-in"> -->
+                <img src="./resources/butterfly.jpg" alt="Full Painting 1" class="modal-image fade-in">
+                <img src="./resources/waves.jpg" alt="Full Drawing 2" class="modal-image fade-in">
+                <img src="./resources/skyline.jpg" alt="Full Sketch 3" class="modal-image fade-in">
+                <img src="./resources/little_girl.jpg" alt="Another Digital Art" class="modal-image fade-in">
+                <img src="./resources/autumgirl.jpg" alt="Full Drawing 2" class="modal-image fade-in">
+                <img src="./resources/winterboy.jpg" alt="Full Sketch 3" class="modal-image fade-in">
+                <img src="./resources/You can girl.jpg" alt="Another Digital Art" class="modal-image fade-in">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
