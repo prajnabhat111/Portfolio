@@ -670,6 +670,7 @@
             transition: all 0.3s ease;
             margin: 1.5rem auto 0;
             border: 1px solid #1b1f23;
+            max-width: 250px;
         }
 
         .github-button:hover {
@@ -678,10 +679,15 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
 
-        .github-button svg {
+        .github-icon {
             width: 20px;
             height: 20px;
+            min-width: 20px;
+            min-height: 20px;
+            max-width: 20px;
+            max-height: 20px;
             fill: currentColor;
+            flex-shrink: 0;
         }
 
         .project-footer {
