@@ -1,4 +1,4 @@
-   document.querySelectorAll('.nav-item').forEach(anchor => {
+ document.querySelectorAll('.nav-item').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
@@ -12,6 +12,11 @@
             });
         });
 
+        window.addEventListener('resize', () => {
+            const header = document.querySelector('.header');
+            document.body.style.setProperty('--header-height', header.offsetHeight + 'px');
+        });
+        window.dispatchEvent(new Event('resize'));
 
         const modal = document.getElementById('artGalleryModal');
 
