@@ -159,15 +159,15 @@
             if (!userText || isProcessing) return;
 
             // State management
-            // isProcessing = true;
-            // appendMessage(userText, 'user');
-            // userInput.value = '';
-            // userInput.disabled = true;
-            // sendButton.disabled = true;
-            // showTypingIndicator(true);
-            setChatUiDisabled(true);
+            isProcessing = true;
             appendMessage(userText, 'user');
             userInput.value = '';
+            userInput.disabled = true;
+            sendButton.disabled = true;
+            // showTypingIndicator(true);
+            setChatUiDisabled(true);
+            // appendMessage(userText, 'user');
+            // userInput.value = '';
             showTypingIndicator(true);
 
 
