@@ -169,7 +169,7 @@
                     userInput.disabled = true;
                     sendButton.disabled = true;
                     // showTypingIndicator(true);
-                    setChatUiDisabled(true);
+                    // setChatUiDisabled(true);
                     // appendMessage(userText, 'user');
                     // userInput.value = '';
                     showTypingIndicator(true);
