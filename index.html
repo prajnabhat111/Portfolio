@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prajna Bhat - Data Scientist</title>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>html {
             scroll-behavior: smooth;
             scroll-padding-top: var(--header-height, 80px);
@@ -20,6 +22,7 @@
             <a href="#experience" class="nav-item">Experience</a>
             <a href="#education" class="nav-item">Education</a>
             <a href="#achievements" class="nav-item">Achievements</a>
+            <a href="#recommendations" class="nav-item">Recommendations</a>
             <a href="#contact" class="nav-item">Contact</a>
             <a href="#fun" class="nav-item">Fun!</a>
         </nav>
@@ -355,6 +358,67 @@
     </div>
 </section>
 
+<section class="section section-alt" id="recommendations">
+    <h2 class="fade-in">Recommendations</h2>
+    
+    <!-- This container will scroll horizontally -->
+    <div class="recommendations-grid fade-in">
+        
+        <!-- Recommendation Card 1 (Paste your content here) -->
+        <a href="https://www.linkedin.com/in/prajna-narayan-bhat/details/recommendations/?detailScreenTabIndex=0" target="_blank" class="recommendation-card">
+
+            <p class="recommendation-quote">
+                "An A-star teammate who thrives on innovation. Whatever the challenge, she finds a way to make it happen."
+            </p>
+        
+            <div class="recommendation-author">
+                - Tiku Arya, Director @ PwC 
+            </div>
+
+            <div class="recommendation-title">
+                Project lead for 2 years
+            </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/prajna-narayan-bhat/details/recommendations/?detailScreenTabIndex=0" target="_blank" class="recommendation-card">
+            <p class="recommendation-quote">
+                "With her dedication, innovation, and ability to manage complex projects flawlessly, Prajna has proven herself as a driving force behind successful outcomes."
+            </p>
+            <div class="recommendation-author">
+                - Avishek Sen, Senior Associate @ PwC 
+            </div>
+            <div class="recommendation-title">
+                Direct supervisor 
+            </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/prajna-narayan-bhat/details/recommendations/?detailScreenTabIndex=0" target="_blank" class="recommendation-card">
+            <p class="recommendation-quote">
+                "Prajna combines strong technical expertise with exceptional leadership and collaboration skills. Her proactive mindset and attention to detail make her an outstanding teammate."
+            </p>
+            <div class="recommendation-author">
+                - Tejas Muralidhar
+            </div>
+            <div class="recommendation-title">
+                Peer in 2 successful projects 
+            </div>
+        </a>
+
+        <a href="https://www.linkedin.com/in/prajna-narayan-bhat/details/recommendations/?detailScreenTabIndex=0" target="_blank" class="recommendation-card">
+            <p class="recommendation-quote">
+                "Known for her sharp problem-solving and proactive attitude. Prajna delivers outstanding results while inspiring those around her."
+            </p>
+            <div class="recommendation-author">
+                - Sayani Sadhu, Management Consultant
+            </div>
+            <div class="recommendation-title">
+                Cross-functional peer
+            </div>
+        </a>
+    
+    </div>
+</section>
+
     <section class="section" id="contact">
         <h2 class="fade-in">Let's Connect!</h2>
         <div style="text-align: center;">
@@ -446,7 +510,39 @@
                 <img src="./resources/You can girl.jpg" alt="Another Digital Art" class="modal-image fade-in">
             </div>
         </div>
+        
     </div>
+
+    <div id="chatbot-container" class="fixed bottom-4 right-4 z-50">
+        <!-- Chat Toggle Button (Always visible) -->
+        <button id="chat-toggle" class="bg-indigo-700 text-white p-5 rounded-full shadow-2xl hover:bg-indigo-600 transition duration-300 transform hover:scale-105" style="width: 76px; height: 76px; display: flex; align-items: center; justify-content: center;">
+            <span class="iconify" data-icon="bi:chat-dots-fill" style="font-size: 30px; line-height: 1;"></span>
+        </button>
+
+        <!-- Chat Window (Starts hidden) -->
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 h-[420px] bg-white shadow-2xl rounded-xl flex flex-col">
+            <!-- Header -->
+            <div class="p-3 bg-indigo-600 text-white rounded-t-xl flex items-center justify-between">
+                <h3 class="font-bold">Prajna's Portfolio Assistant</h3>
+                <i class="ph ph-brain text-lg"></i>
+            </div>
+
+            <!-- Messages Container -->
+            <div id="chat-messages" class="flex-grow p-3 overflow-y-auto space-y-3">
+                <!-- Welcome Message (dynamically added) -->
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-3 border-t flex items-center">
+                <input type="text" id="user-input" placeholder="Ask a question..." class="flex-grow p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500" disabled>
+                <button id="send-button" class="ml-2 p-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition duration-150 disabled:bg-indigo-300" disabled>
+                    <i class="ph ph-paper-plane-tilt text-xl"></i>
+                </button>
+            </div>
+            <div id="status-message" class="text-xs text-center text-gray-500 pb-2 h-4 hidden"></div>
+        </div>
+    </div>
+    
     <script src="script.js"></script>
 </body>
 </html>
