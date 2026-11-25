@@ -134,7 +134,6 @@ setTimeout(() => {
 // RAG Portfolio Chatbot
 document.addEventListener('DOMContentLoaded', () => {
     let isProcessing = false;
-    const STORAGE_KEY = 'prajna_portfolio_chat_history';
 
     const chatWindow = document.getElementById('chat-window');
     const chatToggle = document.getElementById('chat-toggle');
@@ -143,27 +142,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendButton = document.getElementById('send-button');
     const statusMessage = document.getElementById('status-message');
 
-    // Load saved messages for this browser tab session
-    let chatHistory = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '[]');
-
-    function saveHistory() {
-        // Keep the last 12 messages so requests stay fast and within token limits
-        sessionStorage.setItem(STORAGE_KEY, JSON.stringify(chatHistory.slice(-12)));
-    }
-
     function formatBotReply(text) {
         return text
+            // Escape HTML characters for security
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")
+            // Convert **bold** to <strong>bold</strong>
             .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+            // Convert "- " or "* " at the start of a line into a bullet dot
             .replace(/(^|\n)[-*]\s+/g, "$1• ")
+            // Preserve line breaks
             .replace(/\n/g, "<br>");
     }
 
     if (chatToggle && chatWindow && userInput && sendButton && chatMessages) {
-        chatToggle.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevents accidental form submit or anchor jump
+        chatToggle.addEventListener('click', () => {
             chatWindow.classList.toggle('hidden');
             if (!chatWindow.classList.contains('hidden')) {
                 userInput.focus();
@@ -178,12 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        sendButton.addEventListener('click', (e) => {
-            e.preventDefault();
-            sendMessage();
-        });
+        sendButton.addEventListener('click', sendMessage);
 
-        function appendMessage(text, sender, shouldSave = true) {
+        function appendMessage(text, sender) {
             const msgContainer = document.createElement('div');
             msgContainer.className = 'flex ' + (sender === 'user' ? 'justify-end' : 'justify-start');
 
@@ -203,14 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
             msgContainer.appendChild(msgBubble);
             chatMessages.appendChild(msgContainer);
             chatMessages.scrollTop = chatMessages.scrollHeight;
-
-            if (shouldSave) {
-                chatHistory.push({
-                    role: sender === 'user' ? 'user' : 'assistant',
-                    content: text
-                });
-                saveHistory();
-            }
         }
 
         function showTypingIndicator(show) {
@@ -237,15 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 statusMessage.classList.remove('hidden');
                 setTimeout(() => statusMessage.classList.add('hidden'), 4000);
             }
-
-            if (chatHistory.length > 0) {
-                // Restore existing session messages without duplicating them in storage
-                chatHistory.forEach(msg => {
-                    appendMessage(msg.content, msg.role === 'user' ? 'user' : 'ai', false);
-                });
-            } else {
-                appendMessage("Hello! I'm Prajna's AI assistant. Ask me anything about her experience, projects, or tech stack!", 'ai', true);
-            }
+            appendMessage("Hello! I'm Prajna's AI assistant. Ask me anything about her experience, projects, or tech stack!", 'ai');
         }
 
         async function sendMessage() {
@@ -253,10 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!userText || isProcessing) return;
 
             isProcessing = true;
-            // Send prior turns so the AI understands follow-up questions
-            const historyToSend = chatHistory.slice(-6);
-
-            appendMessage(userText, 'user', true);
+            appendMessage(userText, 'user');
             userInput.value = '';
             userInput.disabled = true;
             sendButton.disabled = true;
@@ -269,8 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        userQuery: userText,
-                        history: historyToSend
+                        userQuery: userText
                     })
                 });
 
@@ -285,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             showTypingIndicator(false);
-            appendMessage(responseText, 'ai', true);
+            appendMessage(responseText, 'ai');
 
             isProcessing = false;
             userInput.disabled = false;
