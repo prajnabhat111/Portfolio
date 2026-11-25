@@ -1,6 +1,22 @@
 import fs from 'fs';
 import path from 'path';
 
+async function getActiveGroqModel(apiKey) {
+    const res = await fetch("https://api.groq.com/openai/v1/models", {
+        headers: { 'Authorization': `Bearer ${apiKey}` }
+    });
+    if (!res.ok) throw new Error("Could not fetch Groq models");
+    
+    const { data } = await res.json();
+    // Filter out audio/whisper/guard/vision-only utility models
+    const chatModels = data
+        .map(m => m.id)
+        .filter(id => !/whisper|guard|tts|safeguard/i.test(id));
+
+    // Prefer larger/newer general chat models if available, otherwise use the first active one
+    return chatModels.find(id => /70b|120b|llama-4|qwen|gpt-oss/i.test(id)) || chatModels[0];
+}
+
 // Reads index.html from your repository and strips HTML/CSS/JS markup
 function getPortfolioContext() {
     try {
@@ -85,18 +101,27 @@ export default async function handler(request, response) {
         { role: "user", content: userQuery }
     ];
 
+    let groqModel = "llama-3.1-8b-instant"; // Fallback default
+    if (process.env.GROQ_API_KEY) {
+        try {
+            groqModel = await getActiveGroqModel(process.env.GROQ_API_KEY);
+        } catch (e) {
+            console.warn("Using default Groq model:", e.message);
+        }
+    }
+
     const providers = [
         {
             name: "Groq",
             url: "https://api.groq.com/openai/v1/chat/completions",
             apiKey: process.env.GROQ_API_KEY,
-            model: "llama-3.3-70b-versatile"
+            model: groqModel
         },
         {
             name: "OpenRouter",
             url: "https://openrouter.ai/api/v1/chat/completions",
             apiKey: process.env.OPENROUTER_API_KEY,
-            model: "meta-llama/llama-3.3-70b-instruct:free"
+            model: "openrouter/free"
         }
     ];
 
