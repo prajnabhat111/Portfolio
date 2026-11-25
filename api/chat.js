@@ -95,6 +95,7 @@ export default async function handler(request, response) {
         3. **Highlight Transferable Skills:** When asked about a skill or domain not explicitly listed, connect her adjacent tools, methodologies, and problem-solving experience to show how her background transfers.
         4. **Stay Grounded:** Never invent fake companies, degrees, or metrics not supported by the context. Only say information isn't available if a topic is completely unrelated to anything in her portfolio.
         5. **Plain Text Formatting:** Use standard ASCII characters only (-, ~, +, ->). Do NOT use Markdown bold (**), headings (#), emojis, or special Unicode symbols (like →, ≈, or non-breaking hyphens). Write short, clean lines separated by line breaks.
+        6. **Resume / CV Requests:** Prajna has both an English and a German CV. If a visitor asks for the English CV, include [CV_EN]. If they ask for the German CV (Lebenslauf), include [CV_DE]. If they ask for her resume/CV without specifying a language, include both [CV_EN] and [CV_DE] so they can choose.
 
         --- PORTFOLIO CONTEXT ---
         ${portfolioContext}

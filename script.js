@@ -144,15 +144,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function formatBotReply(text) {
         return text
-            // Escape HTML characters for security
             .replace(/&/g, "&amp;")
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")
-            // Convert **bold** to <strong>bold</strong>
             .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-            // Convert "- " or "* " at the start of a line into a bullet dot
             .replace(/(^|\n)[-*]\s+/g, "$1• ")
-            // Preserve line breaks
+            .replace(
+                /\[CV_EN\]/g,
+                '<a href="/Prajna_Bhat_CV_English.pdf" download="Prajna_Bhat_CV_English.pdf" class="inline-block mt-2 mr-2 px-3 py-1.5 bg-blue-700 text-white text-xs font-medium rounded-lg hover:bg-blue-800">Download CV (EN)</a>'
+            )
+            .replace(
+                /\[CV_DE\]/g,
+                '<a href="/Prajna_Bhat_CV_German.pdf" download="Prajna_Bhat_CV_German.pdf" class="inline-block mt-2 px-3 py-1.5 bg-slate-800 text-white text-xs font-medium rounded-lg hover:bg-slate-900">Lebenslauf (DE)</a>'
+            )
             .replace(/\n/g, "<br>");
     }
 
