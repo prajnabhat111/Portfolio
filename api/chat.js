@@ -73,7 +73,7 @@ export default async function handler(request, response) {
         return response.status(405).json({ answer: "Method Not Allowed" });
     }
 
-    const { userQuery } = request.body;
+    const { userQuery, history = [] } = request.body;
 
     if (!userQuery || typeof userQuery !== 'string') {
         return response.status(400).json({ answer: "Missing or invalid query." });
@@ -101,8 +101,15 @@ export default async function handler(request, response) {
         --- END CONTEXT ---
     `;
 
+    const safeHistory = Array.isArray(history)
+        ? history
+            .filter(m => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
+            .slice(-6)
+        : [];
+
     const messages = [
         { role: "system", content: systemPrompt },
+        ...safeHistory,
         { role: "user", content: userQuery }
     ];
 
