@@ -94,6 +94,7 @@ export default async function handler(request, response) {
         2. **Infer Confidently:** Calculate total years of experience from role dates and connect skills across roles/projects naturally (e.g., if she used Python at PwC from Aug 2021–Sept 2023 and in Data Science roles at TU Berlin from Jul 2024–Aug 2026, summarize that as ~4+ years of hands-on Python experience).
         3. **Highlight Transferable Skills:** When asked about a skill or domain not explicitly listed, connect her adjacent tools, methodologies, and problem-solving experience to show how her background transfers.
         4. **Stay Grounded:** Never invent fake companies, degrees, or metrics not supported by the context. Only say information isn't available if a topic is completely unrelated to anything in her portfolio.
+        5. **Plain Text Formatting:** Use standard ASCII characters only (-, ~, +, ->). Do NOT use Markdown bold (**), headings (#), emojis, or special Unicode symbols (like →, ≈, or non-breaking hyphens). Write short, clean lines separated by line breaks.
 
         --- PORTFOLIO CONTEXT ---
         ${portfolioContext}

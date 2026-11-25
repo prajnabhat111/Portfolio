@@ -133,7 +133,6 @@ setTimeout(() => {
 
 // RAG Portfolio Chatbot
 document.addEventListener('DOMContentLoaded', () => {
-    let portfolioContext = "";
     let isProcessing = false;
 
     const chatWindow = document.getElementById('chat-window');
@@ -142,6 +141,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('user-input');
     const sendButton = document.getElementById('send-button');
     const statusMessage = document.getElementById('status-message');
+
+    function formatBotReply(text) {
+        return text
+            // Escape HTML characters for security
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            // Convert **bold** to <strong>bold</strong>
+            .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+            // Convert "- " or "* " at the start of a line into a bullet dot
+            .replace(/(^|\n)[-*]\s+/g, "$1• ")
+            // Preserve line breaks
+            .replace(/\n/g, "<br>");
+    }
 
     if (chatToggle && chatWindow && userInput && sendButton && chatMessages) {
         chatToggle.addEventListener('click', () => {
@@ -171,7 +184,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     ? 'bg-blue-700 text-white rounded-br-none'
                     : 'bg-white border border-slate-200 text-slate-800 rounded-tl-none'
             }`;
-            msgBubble.textContent = text;
+
+            if (sender === 'ai') {
+                msgBubble.innerHTML = formatBotReply(text);
+            } else {
+                msgBubble.textContent = text;
+            }
+
             msgContainer.appendChild(msgBubble);
             chatMessages.appendChild(msgContainer);
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -193,25 +212,15 @@ document.addEventListener('DOMContentLoaded', () => {
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        async function fetchAndPrepareContext() {
-            statusMessage.textContent = "Loading portfolio context...";
-            statusMessage.classList.remove('hidden');
-
-            try {
-                const rawText = document.body.innerText || "";
-                portfolioContext = rawText.replace(/[\n\t\r]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
-
-                userInput.disabled = false;
-                sendButton.disabled = false;
+        function initChat() {
+            userInput.disabled = false;
+            sendButton.disabled = false;
+            if (statusMessage) {
                 statusMessage.textContent = "Assistant online";
-                appendMessage("Hello! I'm Prajna's AI assistant. Ask me anything about her experience, projects, or tech stack!", 'ai');
+                statusMessage.classList.remove('hidden');
                 setTimeout(() => statusMessage.classList.add('hidden'), 4000);
-            } catch (error) {
-                console.error("Error setting up portfolio context:", error);
-                statusMessage.textContent = "Error loading context. Chat disabled.";
-                userInput.disabled = true;
-                sendButton.disabled = true;
             }
+            appendMessage("Hello! I'm Prajna's AI assistant. Ask me anything about her experience, projects, or tech stack!", 'ai');
         }
 
         async function sendMessage() {
@@ -255,6 +264,6 @@ document.addEventListener('DOMContentLoaded', () => {
             userInput.focus();
         }
 
-        fetchAndPrepareContext();
+        initChat();
     }
 });
