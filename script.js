@@ -232,8 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
-                        userQuery: userText,
-                        portfolioContext: portfolioContext
+                        userQuery: userText
                     })
                 });
 
