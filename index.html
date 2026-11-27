@@ -142,10 +142,10 @@
         </div>
 
         <div class="project-filters fade-in" role="tablist" aria-label="Filter projects by category">
-            <button class="filter-btn active" data-filter="all">All Systems (8)</button>
+            <button class="filter-btn active" data-filter="all">All Systems (9)</button>
             <button class="filter-btn" data-filter="genai">GenAI &amp; RAG</button>
             <button class="filter-btn" data-filter="vision">Computer Vision</button>
-            <button class="filter-btn" data-filter="systems">Backend &amp; AIOps</button>
+            <button class="filter-btn" data-filter="systems">Data, Backend &amp; AIOps</button>
         </div>
 
         <div class="projects-container">
@@ -336,32 +336,32 @@
                     <summary>
                         <div class="project-info-header">
                             <div class="project-top-meta">
-                                <span class="domain-tag">Knowledge Graphs • GraphRAG</span>
-                                <span class="project-tech">Python • Neo4j / NetworkX • Vector Search • LLMs</span>
+                                <span class="domain-tag">Knowledge Graphs • Memory-Augmented RAG</span>
+                                <span class="project-tech">Python • LangChain • Gemini 2.5 Flash • NetworkX • PyVis</span>
                             </div>
-                            <div class="project-title">GraphKB RAG – Knowledge-Graph Retrieval-Augmented Generation</div>
+                            <div class="project-title">GraphKB RAG – Brain-Inspired Graph-Augmented LLM Knowledge Engine</div>
                         </div>
                         <span class="project-arrow" aria-hidden="true">+</span>
                     </summary>
                     <div class="project-details">
-                        <p>[Add 2–3 sentence overview explaining how GraphKB_RAG combines structured knowledge graph traversal with dense vector retrieval to answer multi-hop reasoning queries.]</p>
+                        <p>This proof-of-concept is a memory-augmented RAG system inspired by how the brain consolidates memory between the hippocampus and cortex. It gives an LLM a two-layer knowledge graph as external memory, so it can reason over up-to-date facts without any retraining. Built with LangChain and Gemini 2.5 Flash.</p>
                         <div class="highlight-grid">
                             <div class="highlight-box">
-                                <b>[Key Feature 1, e.g., Automated Knowledge Graph Construction]:</b> [Describe entity/relation extraction from raw documents into graph nodes and edges.]
+                                <b>LLM-built concept graph:</b> a general-purpose LLM extracts named entities from external documents and turns them into concept nodes, with the relations between them as edges.
                             </div>
                             <div class="highlight-box">
-                                <b>[Key Feature 2, e.g., Hybrid Graph + Vector Retrieval]:</b> [Describe how subgraph traversal and semantic search combine to retrieve multi-hop context.]
+                                <b>Two-layer memory (context + concept):</b> a second pass clusters related concepts into context nodes that hold keys back into the concept graph, mirroring the two levels of human recall.
                             </div>
                             <div class="highlight-box">
-                                <b>[Key Feature 3, e.g., Grounded Multi-Hop QA]:</b> [Describe query synthesis, evaluation metrics, or improvements over standard vector-only RAG.]
+                                <b>Training-free knowledge updates:</b> at query time the LLM extracts the context from the question, looks it up in the context graph, and pulls the linked concepts, so new information only needs a graph update instead of fine-tuning.
                             </div>
                         </div>
                         <p class="skills-label"><b>Core Competencies:</b></p>
                         <ul class="pill-list">
-                            <li>Graph-Based Retrieval-Augmented Generation (GraphRAG)</li>
-                            <li>[Knowledge Graph Modeling &amp; Querying (e.g., Neo4j, Cypher)]</li>
-                            <li>Entity &amp; Relation Extraction with LLMs</li>
-                            <li>Hybrid Semantic &amp; Structural Retrieval</li>
+                            <li>Graph-Augmented RAG &amp; Memory-Augmented LLM Design</li>
+                            <li>Knowledge Graph Construction (NetworkX, PyVis)</li>
+                            <li>Entity &amp; Relation Extraction with LLMs (LangChain, Gemini)</li>
+                            <li>Research Translation: Neuroscience &amp; RAG Literature (HippoRAG, GraphRAG)</li>
                         </ul>
                         <div class="project-footer">
                             <a href="https://github.com/prajnabhat111/GraphKB_RAG" class="github-button" target="_blank">
@@ -498,6 +498,50 @@
                         </ul>
                         <div class="project-footer">
                             <a href="https://github.com/prajnabhat111/buyer_rating_system" class="github-button" target="_blank">
+                                <svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                                <span>View Code on GitHub</span>
+                            </a>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- 9. Fintech Fraud Lakehouse -->
+            <div class="project-card fade-in" data-category="systems">
+                <details>
+                    <summary>
+                        <div class="project-info-header">
+                            <div class="project-top-meta">
+                                <span class="domain-tag">Data Engineering • Fraud Analytics</span>
+                                <span class="project-tech">dbt • Databricks • SQL • Python • GitHub Actions</span>
+                            </div>
+                            <div class="project-title">Fintech Fraud Lakehouse – dbt Fraud Detection Analytics</div>
+                        </div>
+                        <span class="project-arrow" aria-hidden="true">+</span>
+                    </summary>
+                    <div class="project-details">
+                        <p>This project is a dbt analytics layer on Databricks that turns a cleaned silver-layer transaction table into fraud alerts and account-balance history. It builds an incremental fraud-alert model, snapshots balance changes, and enforces ledger integrity with data tests, all validated by a CI pipeline on every push.</p>
+                        <div class="highlight-grid">
+                            <div class="highlight-box">
+                                <b>Incremental fraud alert model:</b> processes only new or updated transactions and flags them with rule-based reasons (high-value transfer/cash-out drains and emptied accounts) plus a rolling per-account transaction-velocity window.
+                            </div>
+                            <div class="highlight-box">
+                                <b>Balance history via snapshots:</b> a dbt snapshot tracks each account's latest balance and records a new version whenever it changes, giving an auditable history.
+                            </div>
+                            <div class="highlight-box">
+                                <b>Ledger integrity tests &amp; CI:</b> a custom data test fails the build on invalid amounts, negative balances, or miscalculated balance deltas before they reach downstream models, and a GitHub Actions workflow runs <code>dbt build</code> against Databricks on every push and pull request.
+                            </div>
+                        </div>
+                        <p class="skills-label"><b>Core Competencies:</b></p>
+                        <ul class="pill-list">
+                            <li>Analytics Engineering with dbt (Incremental Models, Snapshots, Tests)</li>
+                            <li>Lakehouse Architecture on Databricks (Silver-Layer Sources)</li>
+                            <li>Advanced SQL (Window Functions, Rule-Based Fraud Scoring)</li>
+                            <li>Data Quality &amp; Ledger Reconciliation Testing</li>
+                            <li>CI/CD for Data Pipelines (GitHub Actions)</li>
+                        </ul>
+                        <div class="project-footer">
+                            <a href="https://github.com/prajnabhat111/fintech-fraud-lakehouse" class="github-button" target="_blank">
                                 <svg class="github-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
                                 <span>View Code on GitHub</span>
                             </a>
